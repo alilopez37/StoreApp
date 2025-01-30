@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.jetbrainsKotlinSerialization)    //Navegation
 }
 
 android {
@@ -56,6 +57,9 @@ dependencies {
     implementation(libs.androidx.compose.runtime.livedata)  //LiveData
     implementation(libs.com.squareup.retrofit2.retrofit)
     implementation(libs.com.squareup.retrofit2.converter.json)
+
+    implementation(libs.androidx.navigation.compose)    //Navegation
+    implementation(libs.kotlinx.serialization.json)     //Navegation
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

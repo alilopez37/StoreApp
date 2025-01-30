@@ -22,27 +22,27 @@ import androidx.compose.ui.unit.sp
 
 //@Preview(showBackground = true)
 @Composable
-fun LoginScreen(loginViewModel: LoginViewModel) {
+fun LoginScreen(loginViewModel: LoginViewModel, navigateToHome : () -> Unit ) {
     val number:Int by loginViewModel.number.observeAsState(initial = 0)
 
     //var number by rememberSaveable { mutableStateOf(0) }
     Column(modifier = Modifier
         .fillMaxSize()
         ) {
-        //ContainerTop(Modifier.weight(1f)) {loginViewModel.onChangedNumber()}
-        //ContainerCenter(Modifier.weight(1f), onClick = {loginViewModel.onChangedNumber()})
-        //ContainerBottom(number,Modifier.weight(1f))
+        ContainerTop(Modifier.weight(1f), onClick =  {loginViewModel.onChangedNumber()}, onNavigate = {navigateToHome()})
+        ContainerCenter(Modifier.weight(1f), onClick = {loginViewModel.onChangedNumber()})
+        ContainerBottom(number,Modifier.weight(1f))
     }
 }
 
 @Composable
-fun ContainerTop(modifier: Modifier, onClick : ()->Unit){
+fun ContainerTop(modifier: Modifier, onClick : ()->Unit, onNavigate : () -> Unit){
     Box(
         modifier =  modifier.background(Color.Blue),
         contentAlignment = Alignment.Center
     ){
         Button(
-            onClick = { onClick()},
+            onClick = { onNavigate()},
             modifier = Modifier
                 .padding(horizontal = 10.dp)
                 .fillMaxWidth(),

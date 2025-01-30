@@ -17,4 +17,5 @@ object RetrofitHelper {
     val registerService: RegisterService by lazy {
         retrofit.create(RegisterService::class.java)
     }
+
 }

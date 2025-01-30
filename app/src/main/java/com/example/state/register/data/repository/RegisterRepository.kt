@@ -12,7 +12,9 @@ class RegisterRepository()  {
 
     suspend fun validateUsername() : Result<UsernameValidateDTO>  {
         return try {
+            
             val response = registerService.validateUsername()
+
             if (response.isSuccessful) {
                 Result.success(response.body()!!)
             } else {

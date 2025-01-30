@@ -8,7 +8,7 @@ class LoginViewModel : ViewModel() {
     private var _number = MutableLiveData<Int>(0)
     val number : LiveData<Int> = _number
 
-    suspend fun onChangedNumber() {
+    fun onChangedNumber() {
         _number.value = _number.value!! + 1
     }
 }
